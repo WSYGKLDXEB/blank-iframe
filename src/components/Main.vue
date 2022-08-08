@@ -16,17 +16,16 @@ export default {
     return {}
   },
   watch: {
-    isTopology(New, Old) {
-      console.log(New, Old)
-      const obj = {
-        cmd: 'Topology'
-      }
-      sendSonInfo(this.$refs.scenes, obj)
+    topologyInfo: {
+      handler(New, Old) {
+        sendSonInfo(this.$refs.scenes, New)
+      },
+      deep: true
     }
   },
   mounted() {},
   computed: {
-    ...mapState(['isTopology'])
+    ...mapState(['topologyInfo'])
   },
   methods: {}
 }

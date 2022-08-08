@@ -7,8 +7,10 @@ export default new Vuex.Store({
   state: {
     // 双击模型信息
     ModelInfo: {},
-    // 是否显示拓扑图
-    isTopology: false
+    topologyInfo: {
+      cmd: 'Topology',
+      name: 'sewage'
+    }
   },
   getters: {},
   mutations: {
@@ -17,8 +19,8 @@ export default new Vuex.Store({
 
       state.ModelInfo.res.position = position
     },
-    toggleTopology(state) {
-      state.isTopology = !state.isTopology
+    toggleTopology(state, name) {
+      state.topologyInfo.name = name
     }
   },
   actions: {},
